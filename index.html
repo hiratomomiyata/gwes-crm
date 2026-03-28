@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GWES CRM</title>
+<style>
+body{margin:0;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:sans-serif;background:#f0f2f5}
+.loading{text-align:center;color:#666}
+.loading .spinner{width:40px;height:40px;border:4px solid #ddd;border-top:4px solid #4a90d9;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 16px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error{color:#e74c3c;text-align:center;padding:20px}
+</style>
+</head>
+<body>
+<div class="loading" id="loader">
+<div class="spinner"></div>
+<p>CRM を読み込んでいます...</p>
+</div>
+<script>
+fetch('https://wmfxyimxqnjwdzumolua.supabase.co/storage/v1/object/public/crm-app/index.html')
+.then(function(r){return r.text()})
+.then(function(html){document.open();document.write(html);document.close()})
+.catch(function(e){document.getElementById('loader').innerHTML='<div class="error"><p>読み込みエラー</p><p>'+e.message+'</p></div>'});
+</script>
+</body>
+</html>
