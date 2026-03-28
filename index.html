@@ -18,7 +18,7 @@ body{margin:0;display:flex;justify-content:center;align-items:center;min-height:
 <p>CRM を読み込んでいます...</p>
 </div>
 <script>
-fetch('https://wmfxyimxqnjwdzumolua.supabase.co/storage/v1/object/public/crm-app/index.html')
+fetch('https://wmfxyimxqnjwdzumolua.supabase.co/storage/v1/object/public/crm-app/index.html?t='+Date.now())
 .then(function(r){return r.text()})
 .then(function(html){document.open();document.write(html);document.close()})
 .catch(function(e){document.getElementById('loader').innerHTML='<div class="error"><p>読み込みエラー</p><p>'+e.message+'</p></div>'});
